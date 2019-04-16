@@ -11,6 +11,7 @@ Updates to the original [py_sfm_depth](https://github.com/geojames/py_sfm_depth)
    + added small angle refraction calculation option
 
 Python v3.x (written in 3.6 & 3.7)
+
 Required Libraries: PyQT5, numpy, pandas, sympy, matplotlib
 
 Licence: MIT
