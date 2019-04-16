@@ -1,0 +1,6 @@
+x,y,sfm_z,w_surf
+705169.551,4848599.444,124.408,124.4312
+705169.651,4848599.444,124.412,124.4311
+705169.751,4848599.444,124.412,124.4331
+
+# other fields in this file are fine, they will be tranfered straight through to the corrected point cloud
