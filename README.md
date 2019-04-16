@@ -9,7 +9,7 @@ The instructions here are very similar to the original software [py_sfm_dpeth](h
 
 Because this is a long tutorial, I've added some table of contents links throughout for easy navigation between the sections.
 
-[Top](https://geojames.github.io/pyBathySfM/#top) | [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) | [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) | [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) | [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
+|[Top](https://geojames.github.io/pyBathySfM/#top)|[SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1)|[Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2)|[Data Prep](https://geojames.github.io/pyBathySfM/#step-3)|[Running the Script](https://geojames.github.io/pyBathySfM/#step-4)|
 
 ### Quick Start
 If your already familiar with the processing workflow you can run the code (load the GUI) at the command line. Change the directory to the location of the downloaded code and run:
