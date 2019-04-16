@@ -9,6 +9,7 @@ The instructions here are very similar to the original software [py_sfm_dpeth](h
 
 Because this is a long tutorial, I've added some table of contents links throughout for easy navigation between the sections.
 
+---
 [Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
 ### Quick Start
@@ -31,6 +32,7 @@ In order to use this this tutorial, you will need:
     - The minimum libraries are: **PyQT5, numpy, pandas, sympy, matplotlib**
 5.  As with any SfM collection technique, practice is your best friend.  **Do not**  expect perfect results from the first attempt to collect and correct SfM bathymetry.
 
+---
 [Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
 ## SfM Collection and Processing <a name="step-1"></a>
@@ -71,10 +73,9 @@ Go through your software’s processing chain to the point where you have a geor
         -   Pitch should be 0° = Nadir (straight down), you may need to convert pitch angles if your software uses a different 0° reference.
         -   Roll in most software should be 0° = horizontal.
         -   Yaw should be a compass angle, 0° = North
-
-___
-[Top](https://geojames.github.io/pyBathySfM/#top) | [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) | [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) | [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) | [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
-___
+	
+---
+[Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
 ## Point Cloud Processing
 
@@ -205,9 +206,8 @@ Click in the DB Tree and select all (Ctrl+A)
     -   File name = [name]
     -   Save as type = ‘CloudCompare entities (*.bin)’
 
-___
-[Top](https://geojames.github.io/pyBathySfM/#top) | [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) | [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) | [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) | [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
-___
+---
+[Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
 ## Data Prep<a name="step-2"></a>
 
@@ -233,9 +233,8 @@ The inputs for the Python script are the edited point cloud, the camera location
 -   sensor_x & sensor_y are the physical sensor dimensions in millimeters
 > You may have to dig around the internet to find these values if they are not listed with the technical specifications of the camera.
 
-___
-[Top](https://geojames.github.io/pyBathySfM/#top) | [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) | [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) | [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) | [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
-___
+---
+[Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
 ## Running the script <a name='step-4'></a>
 
@@ -309,6 +308,5 @@ You will need independently collected elevation data for the bed of your stream/
 - Dietrich JT. 2017. Bathymetric Structure-from-Motion: extracting shallow stream bathymetry from multi-view stereo photogrammetry. Earth Surface Processes and Landforms **42** : 355–364. DOI: [10.1002/esp.4060](https://doi.org/10.1002/esp.4060)
 - Woodget AS, Carbonneau PE, Visser F, Maddock IP. 2015. Quantifying submerged fluvial topography using hyperspatial resolution UAS imagery and structure from motion photogrammetry. Earth Surface Processes and Landforms **40** : 47–64. DOI: [10.1002/esp.3613](https://doi.org/10.1002/esp.3613)
 
-___
-[Top](https://geojames.github.io/pyBathySfM/#top) | [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) | [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) | [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) | [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
-___
+---
+[Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
