@@ -1,4 +1,4 @@
-## Welcome to pyBathySfM<a name="top"></a>
+<a name="top"></a>## Welcome to pyBathySfM
 If you plan to use this tutorial and the accompanying software, I would suggest you read (and cite) :
 >Dietrich JT. 2017. Bathymetric Structure-from-Motion: extracting shallow stream bathymetry from multi-view stereo photogrammetry. Earth Surface Processes and Landforms 42 : 355–364. DOI: [10.1002/esp.4060](http://onlinelibrary.wiley.com/doi/10.1002/esp.4060/abstract)
 >Also available on [ResearchGate](https://www.researchgate.net/publication/308765034_Bathymetric_Structure_from_Motion_Extracting_shallow_stream_bathymetry_from_multi-view_stereo_photogrammetry)
