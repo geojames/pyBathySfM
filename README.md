@@ -36,7 +36,8 @@ In order to use this this tutorial, you will need:
 ---
 [Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
-## SfM Collection and Processing <a name="step-1"></a>
+<a name="step-1"></a>
+## SfM Collection and Processing 
 
 #### Collect imagery for your site
 I’m not going to go into the details here, I’m assuming you have knowledge/experience with imagery collection for SfM.
@@ -78,6 +79,7 @@ Go through your software’s processing chain to the point where you have a geor
 ---
 [Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
+<a name="step-2"></a>
 ## Point Cloud Processing
 
 The instructions in this section use the tools in CloudCompare (CC), so assume that the tool names are for CloudCompare. If you are using a different software, you’ll need to read through and translate the instructions/tools to your specific software. Info on how to use the specific tools in CC can be found on the CloudCompare Wiki ([http://www.cloudcompare.org/doc/wiki/index.php?title=Main_Page](http://www.cloudcompare.org/doc/wiki/index.php?title=Main_Page))
@@ -210,7 +212,8 @@ Click in the DB Tree and select all (Ctrl+A)
 ---
 [Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
-## Data Prep<a name="step-2"></a>
+<a name="step-3"></a>
+## Data Prep
 
 The inputs for the Python script are the edited point cloud, the camera location/orientations, and a file with camera sensor parameters. These all need to be comma-delimited (*.csv) files. You will need open all of the files in a text editor or Excel to double-check the header names (they are case-sensitive). There are examples included in the "Sample Data" folder in the Git repository.
 
@@ -237,7 +240,8 @@ The inputs for the Python script are the edited point cloud, the camera location
 ---
 [Top](https://geojames.github.io/pyBathySfM/#top) : [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) : [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) : [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) : [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
 
-## Running the script <a name='step-4'></a>
+<a name="step-4"></a>
+## Running the script
 
 > A quick note, there is very little error checking/handling in this program. Most of the errors that are likely to occur will be because of incorrect header names in the CSV files, double check them against the sample data files. If the output is empty or looks weird, double check that the camera orientation values are in the correct directions and that the point cloud has correct water surface elevations.
 
