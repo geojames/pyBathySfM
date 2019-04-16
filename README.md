@@ -9,9 +9,9 @@ The instructions here are very similar to the original software [py_sfm_dpeth](h
 
 Because this is a long tutorial, I've added some table of contents links throughout for easy navigation between the sections.
 
-****
+---
 [Top](https://geojames.github.io/pyBathySfM/#top) | [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) | [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) | [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) | [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
-****
+---
 ### Quick Start
 If your already familiar with the processing workflow you can run the code (load the GUI) at the command line. Change the directory to the location of the downloaded code and run:
 ``python py_BathySfM.py``
@@ -31,9 +31,9 @@ In order to use this this tutorial, you will need:
     -   I use a scientific python distribution, Anaconda ([https://www.continuum.io/downloads](https://www.continuum.io/downloads)), that has most of the needed libraries.
     - The minimum libraries are: **PyQT5, numpy, pandas, sympy, matplotlib**
 5.  As with any SfM collection technique, practice is your best friend.  **Do not**  expect perfect results from the first attempt to collect and correct SfM bathymetry.
-___
+---
 [Top](https://geojames.github.io/pyBathySfM/#top) | [SfM Collection and Processing](https://geojames.github.io/pyBathySfM/#step-1) | [Point Cloud Processing](https://geojames.github.io/pyBathySfM/#step-2) | [Data Prep](https://geojames.github.io/pyBathySfM/#step-3) | [Running the Script](https://geojames.github.io/pyBathySfM/#step-4)
-___
+---
 
 ## SfM Collection and Processing <a name="step-1"></a>
 
