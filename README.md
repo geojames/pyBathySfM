@@ -9,6 +9,10 @@ Updates to the original [py_sfm_depth](https://github.com/geojames/py_sfm_depth)
    + Angle and distance filters
    + Debugging outputs (raw processing outputs)
    + added small angle refraction calculation option
+   
+### This script is SfM software indifferent (Agisoft, Pix4D, etc)
+- you just need to be able to export a CSV point cloud and get camera parameters (x,y,z,pitch,roll,yaw)
+- see the tutorial for more info.
 
 Python v3.x (written in 3.6 & 3.7)
 
