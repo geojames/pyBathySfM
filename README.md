@@ -15,8 +15,9 @@ Updates to the original [py_sfm_depth](https://github.com/geojames/py_sfm_depth)
 - see the tutorial for more info.
 
 #### Requirements
-Python v3.x (written in 3.6 & 3.7)
-Required Libraries: PyQT5, numpy, pandas, sympy, matplotlib
+- Python v3.x (written in 3.6 & 3.7)
+- Required Libraries: PyQT5, numpy, pandas, sympy, matplotlib
 
 Licence: MIT
+
 © 2019, James T. Dietrich, Ph.D.
