@@ -15,7 +15,11 @@ Updates to the original [py_sfm_depth](https://github.com/geojames/py_sfm_depth)
 - see the tutorial for more info.
 
 ### Running the script
-In your command line program of choice (i.e. Windows command prompt, Anaconda prompt
+Download and unzip the Github Repository to a 
+In your command line program of choice (i.e. Windows command prompt, Anaconda prompt)
+- Change the direcotry `cd c:\...` to the unzipped repository
+- Run the script with `pyhton pyBathySfM.py`
+   - do not run `pyBathySfM_gui.py` this is the source code, but it will not display the GUI
 
 #### Requirements
 - Python v3.x (written in 3.6 & 3.7)
