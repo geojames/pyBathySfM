@@ -53,12 +53,12 @@ SOFTWARE.
  
 import sys
 from PyQt5.QtWidgets import QDialog, QApplication
-from py_BathySfM_gui import Ui_BathySfM_gui
+from py_BathySfM_gui import Ui_bathySfM_gui
 
 class AppWindow(QDialog):
     def __init__(self):
         super().__init__()
-        self.ui = Ui_BathySfM_gui()
+        self.ui = Ui_bathySfM_gui()
         self.ui.setupUi(self)
         self.show()
 
