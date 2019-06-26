@@ -1,7 +1,7 @@
 # pyBathySfM
 Updates to the original [py_sfm_depth](https://github.com/geojames/py_sfm_depth) with a new fancy name and a shiny new GUI interface
 
-Update History
+##### Update History
 - V.4 - 2019 June 26 - GUI bug fixes
 
 ## Tutorial - [https://geojames.github.io/pyBathySfM/](https://geojames.github.io/pyBathySfM/)
