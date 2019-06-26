@@ -547,6 +547,20 @@ class Ui_bathySfM_gui(object):
         self.botProg_lbl.raise_()
         self.txt_copyright.raise_()
         self.txt_licence.raise_()
+        
+        # connections (textbox, check box actions)
+
+        self.ptCloud_btn.clicked.connect(self.ptCloud_picker)
+        self.cam_btn.clicked.connect(self.cam_picker)
+        self.pickle_btn.clicked.connect(self.pickle_picker)
+        self.sensor_btn.clicked.connect(self.sensor_picker)
+        self.out_btn.clicked.connect(self.outfile_picker)
+        self.precalcCam_box.stateChanged.connect(self.precalc_change)
+        self.check_filter.stateChanged.connect(self.filter_change)
+        
+        # blank global working directory variable
+        global working_dir
+        working_dir = '.'
 
         self.retranslateUi(bathySfM_gui)
         self.buttonBox.accepted.connect(bathySfM_gui.accept)
