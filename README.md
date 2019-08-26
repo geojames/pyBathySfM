@@ -2,7 +2,7 @@
 
 Updates to the original [py_sfm_depth](https://github.com/geojames/py_sfm_depth) with a new fancy name and a shiny new GUI interface
 
-[![DOI](https://zenodo.org/badge/172077968.svg
+[![DOI](https://zenodo.org/badge/172077968.svg)](https://zenodo.org/badge/latestdoi/172077968)
 
 ##### Update History
 - V.4 - 2019 June 26 - GUI bug fixes
