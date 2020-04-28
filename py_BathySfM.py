@@ -62,6 +62,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
+from scipy.spatial.transform import Rotation as R
 import sympy.geometry as spg
 import matplotlib.path as mplPath
 from datetime import datetime
@@ -121,38 +122,34 @@ def footprints(cam, sensor, base_elev, gui):
         # check is the camera pitch is over the critical value
         if row.pitch < crit_pitch:
             
-            # sensor corners (UR,LR,LL,UL), north-oriented and zero pitch
-            corners = np.array([[row.x+sx,row.y-f,row.z+sy],
-                               [row.x+sx,row.y-f,row.z-sy],
-                               [row.x-sx,row.y-f,row.z-sy],
-                               [row.x-sx,row.y-f,row.z+sy]])
+            # sensor corners, north-oriented and zero pitch(down look)
+            #   [LL,UL,UR,LR,frame center]
+            # X & Y flipped for Euler rotation frame (switched back latter)
+            corner_p = np.array([[-f,-sx,-sy],
+                                 [-f,-sx,sy],
+                                 [-f,sx,sy],
+                                 [-f,sx,-sy],
+                                 [-f,0,0]])
             
-            # offset corner points by cam x,y,z for rotation
-            cam_pt = np.atleast_2d(np.array([row.x, row.y, row.z]))
-            corner_p = corners - cam_pt
-    
-            # get pitch and yaw from the camera, convert to radians
-            pitch = np.deg2rad(90.0-row.pitch)
-            roll = np.deg2rad(row.roll)
-            yaw = np.deg2rad(row.yaw)
+            # cam x,y,z for adding to rotation
+            cam_pt = np.array([row.x, row.y, row.z])
             
-            # setup picth rotation matrix (r_x) and yaw rotation matrix (r_z)
-            r_x = np.matrix([[1.0,0.0,0.0],
-                             [0.0,np.cos(pitch),-1*np.sin(pitch)],
-                             [0.0,np.sin(pitch),np.cos(pitch)]])
-                             
-            r_y = np.matrix([[np.cos(roll),0.0,np.sin(roll)],
-                             [0.0,1.0,0.0],
-                             [-1*np.sin(roll),0.0,np.cos(roll)]])
+            # get pitch and yaw from the camera, in degrees
+            #   translate to fit euler frame
+            pitch_e = 90.0-row.pitch
+            roll_e = -row.roll
+            if 0 <= row.yaw <= 180.0:
+                yaw_e = row.yaw
+            else:
+                yaw_e = -1* (360.0 - row.yaw)
             
-            r_z =  np.matrix([[np.cos(yaw),-1*np.sin(yaw),0],
-                              [np.sin(yaw),np.cos(yaw),0],
-                              [0,0,1]])
-            
-            # rotate corner_p by r_x, then r_z, add back cam x,y,z offsets
-            # produces corner coords rotated for pitch and yaw
-            p_pr = np.matmul(np.matmul(corner_p, r_x),r_y)            
-            p_out = np.matmul(p_pr, r_z) + cam_pt
+            # create Euler rotation object form y,p,r, 
+            #   apply to the sensor corner points
+            #   add the camera point coords to translate
+            r_e = R.from_euler('ZYX',[[yaw_e,pitch_e,roll_e]],degrees=True)
+            p_eC = r_e.apply(corner_p) + [cam_pt[1],cam_pt[0],cam_pt[2]] 
+            reord = [1,0,2]
+            s_pts = p_eC[:,reord]
             
             # GEOMETRY
             # Set Sympy 3D point for the camera and a 3D plane for intersection
@@ -161,11 +158,11 @@ def footprints(cam, sensor, base_elev, gui):
                                       normal_vector=(0,0,1))
             
             # blank array for footprint intersection coords
-            inter_points = np.zeros((corners.shape[0],2))
+            inter_points = np.zeros((corner_p.shape[0]-1,2))
             
             # for each sensor corner point
             idx_b = 0
-            for pt in np.asarray(p_out):
+            for pt in np.asarray(s_pts[0:4]):
                 
                 # create a Sympy 3D point and create a Sympy 3D ray from 
                 #   corner point through camera point
@@ -175,7 +172,7 @@ def footprints(cam, sensor, base_elev, gui):
                 # calculate the intersection of the ray with the plane                
                 inter_pt = plane.intersection(ray)
                 
-                # Extract out the X,Y coords of the intersection point
+                # Extract out the X,Y coords from the intersection point to
                 #   ground intersect points will be in this order (LL,UL,UR,LR)
                 inter_points[idx_b,0] = inter_pt[0].x.evalf()
                 inter_points[idx_b,1] = inter_pt[0].y.evalf()
@@ -196,7 +193,7 @@ def footprints(cam, sensor, base_elev, gui):
         if (idx+1) % 10 == 0:
             print("%i cameras processed..." %(idx+1))
             gui.top_progBar.setValue(idx)
-            gui.topProg_Lbl.setText("Calculating Camera Footprints - " + str(idx+1))
+            gui.topProg_Lbl.setText("Calculating Camera Footprints - %i of %i"%(idx+1,cam.shape[0]))
             QApplication.processEvents()
             #sys.stdout.flush()
             
@@ -866,7 +863,7 @@ class Ui_bathySfM_gui(object):
     
             # user feedback, def timer and bottom progress bar
             self.bot_progBar.setValue(idx)
-            self.botProg_lbl.setText("Processed %i points"%(count))
+            self.botProg_lbl.setText("Processed %i points"%(sum(count)))
             QApplication.processEvents()
             if self.precalcCam_box.isChecked():
                 timer(count, refract_start_time)
