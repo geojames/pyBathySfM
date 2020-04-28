@@ -1,0 +1,41 @@
+V4.5 - 28 APRIL 2020
+	* Minor update
+	1) Updated camera rotation code to use Scipy (v1.4) coordinate rotation math
+	2) Added QT "Worker" code and rearraged the core code to allow for multithreading
+		-- Progress bar, GUI process text work now (they never did before
+		-- Also improves performance a little too
+
+
+V4.0 - 26 JUNE 2019
+	* Major update based on new publication (below)
+	1) Minor speed improvments
+	2) Added the ability to export/import camera IVOF footprints
+		-- Outputs Pickle (*.pkl) file of IVOF geometry objects (Matplotlib paths)
+		-- Input of "pre-calculated" cameras
+	3) Added additional options boxes:
+		-- Extra Point Stats: Additional statisitacal output for depth calculations
+		-- Small angle Approx: Outputs the small angle approximation correction 
+								(apparent depth * refractive index)
+		-- Extra Camera Outputs: will output extra debugging tables for the first 
+									batch (10000)of points. Full numpy array 
+									tables of Camera angle/distance, point angles, 
+									depth/elev. calculations.
+									Outputs will be in the output folder.
+		-- Filtered depth values: allows user to set a filter threshold for max 
+									camera angles and point camera distance.
+	
+	Citation:
+	Woodget, Amy S., James T. Dietrich, and Robin T. Wilson. 2019. Quantifying 
+		Below-Water Fluvial Geomorphic Change: The Implications of Refraction 
+		Correction, Water Surface Elevations, and Spatially Variable Error.
+		Remote Sensing 11 (20): 2415. https://doi.org/10.3390/rs11202415
+
+
+V1.0 - 2017
+	* Inital Release with publication
+	
+	Dietrich, James T. 2017. Bathymetric Structure-from-Motion: Extracting 
+		Shallow Stream Bathymetry from Multi-View Stereo Photogrammetry. 
+		Earth Surface Processes and Landforms 42 (2): 355–64. 
+		https://doi.org/10.1002/esp.4060
+

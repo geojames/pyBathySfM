@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>517</width>
-    <height>595</height>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,8 +22,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>400</y>
-     <width>481</width>
+     <y>443</y>
+     <width>471</width>
      <height>32</height>
     </rect>
    </property>
@@ -31,7 +31,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::Close|QDialogButtonBox::Ok</set>
    </property>
   </widget>
   <widget class="QToolButton" name="ptCloud_btn">
@@ -182,7 +182,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>450</y>
+     <y>490</y>
      <width>481</width>
      <height>23</height>
     </rect>
@@ -195,7 +195,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>480</y>
+     <y>520</y>
      <width>451</width>
      <height>16</height>
     </rect>
@@ -208,7 +208,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>510</y>
+     <y>550</y>
      <width>481</width>
      <height>23</height>
     </rect>
@@ -221,7 +221,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>540</y>
+     <y>580</y>
      <width>451</width>
      <height>16</height>
     </rect>
@@ -230,94 +230,94 @@
     <string>Overall Progress</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="exportCam_box">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>140</y>
-     <width>441</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Export Camera File (output will be in the Output File folder)</string>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="pickle_btn">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>170</y>
-     <width>31</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="camPickle">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>170</y>
-     <width>231</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Camera Pickle File (*.pkl)</string>
-   </property>
-  </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>110</y>
-     <width>481</width>
+     <width>471</width>
      <height>91</height>
     </rect>
    </property>
    <property name="title">
     <string>Camera Options (Advanced Use)</string>
    </property>
-  </widget>
-  <widget class="QCheckBox" name="precalcCam_box">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>170</y>
-     <width>161</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Use Precalc'd Cameras</string>
-   </property>
+   <widget class="QCheckBox" name="precalcCam_box">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Use Precalc'd Cameras</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="exportCam_box">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>441</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Export Camera File (output will be in the Output File folder)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="camPickle">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>60</y>
+      <width>231</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Camera Pickle File (*.pkl)</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="pickle_btn">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>60</y>
+      <width>31</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>310</y>
-     <width>481</width>
-     <height>81</height>
+     <width>471</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="title">
-    <string>Extra Output Options</string>
+    <string>Extra Options</string>
    </property>
    <widget class="QCheckBox" name="check_smAng">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
+      <x>120</x>
+      <y>50</y>
       <width>141</width>
       <height>17</height>
      </rect>
@@ -329,9 +329,9 @@
    <widget class="QCheckBox" name="check_stats">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>111</width>
+      <x>120</x>
+      <y>20</y>
+      <width>121</width>
       <height>17</height>
      </rect>
     </property>
@@ -342,8 +342,8 @@
    <widget class="QCheckBox" name="check_camStats">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>20</y>
+      <x>120</x>
+      <y>80</y>
       <width>151</width>
       <height>17</height>
      </rect>
@@ -355,7 +355,7 @@
    <widget class="QCheckBox" name="check_filter">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>290</x>
       <y>20</y>
       <width>151</width>
       <height>16</height>
@@ -371,9 +371,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>40</y>
-      <width>42</width>
+      <x>289</x>
+      <y>50</y>
+      <width>61</width>
       <height>20</height>
      </rect>
     </property>
@@ -390,9 +390,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>40</y>
-      <width>42</width>
+      <x>290</x>
+      <y>80</y>
+      <width>61</width>
       <height>20</height>
      </rect>
     </property>
@@ -406,8 +406,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>60</y>
+      <x>359</x>
+      <y>50</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -419,8 +419,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>60</y>
+      <x>359</x>
+      <y>80</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -432,8 +432,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>35</y>
+      <x>140</x>
+      <y>95</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -447,35 +447,85 @@
      <string>First 10000 pts</string>
     </property>
    </widget>
+   <widget class="QDoubleSpinBox" name="spinBox_rf">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>71</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="decimals">
+     <number>3</number>
+    </property>
+    <property name="maximum">
+     <double>3.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>0.001000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.337000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Refractive</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Index</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="txt_copyright">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>570</y>
+     <y>600</y>
      <width>191</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;right&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;© James T. Dietrich, Ph.D. 2019&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>© James T. Dietrich, Ph.D. 2020</string>
    </property>
   </widget>
   <widget class="QLabel" name="txt_licence">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>570</y>
-     <width>71</width>
+     <y>600</y>
+     <width>231</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>MIT Licence</string>
+    <string>v4.5 2020/4/28 - MIT Licence</string>
    </property>
   </widget>
   <zorder>groupBox</zorder>
@@ -497,10 +547,6 @@ p, li { white-space: pre-wrap; }
   <zorder>topProg_Lbl</zorder>
   <zorder>bot_progBar</zorder>
   <zorder>botProg_lbl</zorder>
-  <zorder>exportCam_box</zorder>
-  <zorder>camPickle</zorder>
-  <zorder>precalcCam_box</zorder>
-  <zorder>pickle_btn</zorder>
   <zorder>txt_copyright</zorder>
   <zorder>txt_licence</zorder>
  </widget>
@@ -517,10 +563,13 @@ p, li { white-space: pre-wrap; }
   <tabstop>sensor_btn</tabstop>
   <tabstop>out_txt</tabstop>
   <tabstop>out_btn</tabstop>
-  <tabstop>check_smAng</tabstop>
+  <tabstop>spinBox_rf</tabstop>
   <tabstop>check_stats</tabstop>
+  <tabstop>check_smAng</tabstop>
   <tabstop>check_camStats</tabstop>
   <tabstop>check_filter</tabstop>
+  <tabstop>spinBox_angle</tabstop>
+  <tabstop>spinBox_dist</tabstop>
  </tabstops>
  <resources/>
  <connections>
