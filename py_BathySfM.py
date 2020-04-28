@@ -3,31 +3,31 @@
 #------------------------------------------------------------------------------
 __author__ = 'James T. Dietrich'
 __contact__ = 'james.dietrich@uni.edu'
-__copyright__ = '(c) James Dietrich 2018'
+__copyright__ = '(c) James Dietrich 2019'
 __license__ = 'MIT'
-__date__ = '23 Oct 2018'
-__version__ = '2.1'
+__date__ = '26 JUNE 2019'
+__version__ = '4.0'
 __status__ = "initial release"
-__url__ = "https://github.com/geojames/py_sfm_depth"
+__url__ = "https://github.com/geojames/pyBathySfM"
 
 """
-Name:           py_bathySfM.py
-Compatibility:  Python 3.6
+Name:           py_BathySfM.py
+Compatibility:  Python 3.7
 Description:    This program performs a per-camera refration correction on a 
                 Structure-from-Motion point cloud. Additional documnetation,
                 sample data, and a tutorial are availible from the GitHub
                 address below.
 
-URL:            https://github.com/geojames/py_sfm_depth
+URL:            https://github.com/geojames/pyBathySfM
 
-Requires:       tkinter, numpy, pandas, sympy, matplotlib
+Requires:       PyQT5, numpy, pandas, sympy, matplotlib
 
 Dev ToDo:       1) speed up camera geometry calculations
 
 AUTHOR:         James T. Dietrich
 ORGANIZATION:   University of Northern Iowa
 Contact:        james.dietrich@uni.edu
-Copyright:      (c) James Dietrich 2018
+Copyright:      (c) James Dietrich 2019
 
 Licence:        MIT
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -48,6 +48,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.
 """
+# -- TO RUN --
+# execute this code form the command line: python py_BathySfM.py
+# or from an editor
+
 #------------------------------------------------------------------------------
 # Imports
  

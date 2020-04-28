@@ -5,8 +5,8 @@ __author__ = 'James T. Dietrich'
 __contact__ = 'james.dietrich@uni.edu'
 __copyright__ = '(c) James Dietrich 2019'
 __license__ = 'MIT'
-__date__ = '15 APR 2019'
-__version__ = '3.0'
+__date__ = '26 JUNE 2019'
+__version__ = '4.0'
 __status__ = "initial release"
 __url__ = "https://github.com/geojames/pyBathySfM"
 
@@ -48,7 +48,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.
 """
-# TO RUN -  Do not run this code...from the command line (or editor) run  
+# TO RUN -  *Do not run this code*...from the command line (or editor) run  
 #           py_bathySfM.py to load the GUI
 # Main Code at bottom in - def main_prog()
 #------------------------------------------------------------------------------
@@ -256,7 +256,7 @@ def visibility(cam, footprints, targets):
         
     return r_filt, d, qual_vis
 
-def correction(r, target, extras):
+def correction(r, target, r_index,extras):
     """Performs the per camera refraction correction on a target point.
     Refer to the documentation for the specifics.
     extras = [smAng, stats, camStats, weight]"""
@@ -265,7 +265,7 @@ def correction(r, target, extras):
     ang_r = np.radians(r)
 
     # calculate the refraction angle i 
-    ang_i = np.arcsin(1.0/ref_index * np.sin(ang_r))
+    ang_i = np.arcsin(1.0/r_index * np.sin(ang_r))
     
     # calculate the apparent depth from the water surface elev. and the 
     #   target SfM elevation
@@ -563,7 +563,7 @@ class Ui_bathySfM_gui(object):
         working_dir = '.'
 
         self.retranslateUi(bathySfM_gui)
-        self.buttonBox.accepted.connect(bathySfM_gui.accept)
+        self.buttonBox.accepted.connect(self.main_prog)
         self.buttonBox.rejected.connect(bathySfM_gui.reject)
         QtCore.QMetaObject.connectSlotsByName(bathySfM_gui)
         bathySfM_gui.setTabOrder(self.ptCloud_txt, self.ptCloud_btn)
@@ -804,7 +804,7 @@ class Ui_bathySfM_gui(object):
             cam_r,cam_dist,cam_qual = visibility(cams,foot_prints,tar)        
             
             # perform the refraction correction
-            tar_out, ang_r, x_dist, h, cor_elev = correction(cam_r, tar, extraOpt)
+            tar_out, ang_r, x_dist, h, cor_elev = correction(cam_r, tar, ref_index, extraOpt)
             
             #if filter checkbox is ticked, run the pitonFilter function
             if extraOpt[3]:
