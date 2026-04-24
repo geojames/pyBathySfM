@@ -512,7 +512,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>© James T. Dietrich, Ph.D. 2020</string>
+    <string>© James T. Dietrich, Ph.D. 2026</string>
    </property>
   </widget>
   <widget class="QLabel" name="txt_licence">
@@ -525,7 +525,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>v4.5 2020/4/28 - MIT Licence</string>
+    <string>v7.0 2026/4/24 - MIT Licence</string>
    </property>
   </widget>
   <zorder>groupBox</zorder>

@@ -2,17 +2,17 @@
 # -*- coding: utf-8 -*-
 #------------------------------------------------------------------------------
 __author__ = 'James T. Dietrich'
-__contact__ = 'james.dietrich@uni.edu'
-__copyright__ = '(c) James Dietrich 2019'
+__contact__ = 'geojamesdietrich@gmail.com'
+__copyright__ = '(c) James Dietrich 2026'
 __license__ = 'MIT'
-__date__ = '28 APRIL 2020'
-__version__ = '4.5'
+__date__ = '24 APRIL 2026'
+__version__ = '7.0'
 __status__ = "minor release"
 __url__ = "https://github.com/geojames/pyBathySfM"
 
 """
 Name:           py_BathySfM_gui.py
-Compatibility:  Python 3.7
+Compatibility:  Python 3.14
 Description:    This program performs a per-camera refration correction on a 
                 Structure-from-Motion point cloud. Additional documnetation,
                 sample data, and a tutorial are availible from the GitHub
@@ -25,9 +25,12 @@ Requires:       PyQT5, numpy, pandas, sympy, matplotlib
 Dev ToDo:       1) speed up camera geometry calculations
 
 AUTHOR:         James T. Dietrich
-ORGANIZATION:   University of Northern Iowa
-Contact:        james.dietrich@uni.edu
-Copyright:      (c) James Dietrich 2019
+ORGANIZATION:   Washingotn Department of Ecology
+Contact:        geojamesdietrich@gmail.com
+Copyright:      (c) James Dietrich 2026
+
+Change Log:
+    4/26/2026 - Update to Python 3.14, fixing bugs related to Pandas (3.0.x) update
 
 Licence:        MIT
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -93,10 +96,10 @@ def footprints(cam, sensor, base_elev, gui):
     
     #qt progress bar
     gui.top_progBar.setValue(0)
-    gui.top_progBar.setMaximum(cam.shape[0])
+    gui.top_progBar.setMaximum(cam.shape[0]-1)
     
     # Setup DF to house camera footprint polygons
-    footprints = pd.DataFrame(np.zeros((cam.shape[0],1)), columns=['fov'])
+    footprints = pd.DataFrame(np.zeros((cam.shape[0],1)), columns=['fov'],dtype='object')
     
     # debug - blank 3d array for inter_points
 #        itp_f = '//thor.ad.uni.edu/users/jdietric/Documents/Python Scripts/py_sfm_depth/WhiteR_2016/itp.npy'
@@ -184,21 +187,30 @@ def footprints(cam, sensor, base_elev, gui):
             inter_points = np.full((4,2),np.nan)
         
         # append inter_points to footprints as a matplotlib path object
-        footprints.fov[idx] = mplPath.Path(inter_points)
+        footprints.loc[idx,'fov'] = mplPath.Path(inter_points)
         
         #debug - save inter_points
 #            itp[idx,:,:] = inter_points
         
+        #GUI update
+        gui.top_progBar.setValue(idx)
+        QApplication.processEvents()
+        
         # User feedback and progress bar
         if (idx+1) % 10 == 0:
             print("%i cameras processed..." %(idx+1))
-            gui.top_progBar.setValue(idx)
+            
             gui.topProg_Lbl.setText("Calculating Camera Footprints - %i of %i"%(idx+1,cam.shape[0]))
             QApplication.processEvents()
             #sys.stdout.flush()
             
     #debug - save inter_points
     #np.save(itp_f,itp)
+    
+    #final top Progbar update
+    gui.top_progBar.setMaximum(100)
+    gui.top_progBar.setValue(100)
+    QApplication.processEvents()
     
     return footprints
 # END - footprints
@@ -224,7 +236,7 @@ def visibility(cam, footprints, targets):
     #   within the path polygon. path.contains_points returns boolean.
     #   the results are accumulated in the vis array.
     for idx in range(footprints.shape[0]):
-        path = footprints.fov[idx]
+        path = footprints.loc[idx,'fov']
         vis[:,idx] = path.contains_points(np.array([targets.x.values, targets.y.values]).T)
     
     # calculate the coord. deltas between the cameras and the target
@@ -611,8 +623,8 @@ class Ui_bathySfM_gui(object):
         self.label_3.setText(_translate("bathySfM_gui", "First 10000 pts"))
         self.label_4.setText(_translate("bathySfM_gui", "Refractive"))
         self.label_5.setText(_translate("bathySfM_gui", "Index"))
-        self.txt_copyright.setText(_translate("bathySfM_gui", "© James T. Dietrich, Ph.D. 2020"))
-        self.txt_licence.setText(_translate("bathySfM_gui", "v4.5 2020/4/28 - MIT Licence"))
+        self.txt_copyright.setText(_translate("bathySfM_gui", "© James T. Dietrich, Ph.D. 2026"))
+        self.txt_licence.setText(_translate("bathySfM_gui", "v7.0 2026/4/24 - MIT Licence"))
 
 # file picker connection functions
     
@@ -717,9 +729,10 @@ class Ui_bathySfM_gui(object):
        #READ INPUT FILES
         
         # target points - as CSV point cloud (x,y,z,w_surf,r,g,b) from CloudCompare
-        #   will be read in 10000 point chunks for memory management purposes   
+        #   will be read in 10000 point chunks for memory management purposes
+        target_checksize = 30000
         target_file = self.ptCloud_txt.text()
-        targets = pd.read_csv(target_file, chunksize = 10000)
+        targets = pd.read_csv(target_file, chunksize = target_checksize)
         self.top_progBar.setValue(25)
         QApplication.processEvents()
         
@@ -762,7 +775,7 @@ class Ui_bathySfM_gui(object):
         for idx, tar in enumerate(targets):
             chunk_num = idx
         self.bot_progBar.setMaximum(chunk_num)
-        targets = pd.read_csv(target_file, chunksize = 10000)
+        targets = pd.read_csv(target_file, chunksize = target_checksize)
         
         # Main Processing Loop, for each chunk of points from the reader
         for idx, tar in enumerate(targets):
@@ -873,8 +886,13 @@ class Ui_bathySfM_gui(object):
         # User feedback on the total processing time
         tot_count = sum(count)
         tot_time = (datetime.now() - start_time).total_seconds() / 60
-        print("%i points processed, Total Running Time = %0.2f minutes" %(tot_count,tot_time))
+        self.bot_progBar.setValue(idx)
+        total_time_txt = "%i points processed, Total Running Time = %0.2f minutes" %(tot_count,tot_time)
+        print(total_time_txt)
         self.botProg_lbl.setText('Processing Complete')
+        QApplication.processEvents()
+        self.top_progBar.setValue(0)
+        self.topProg_Lbl.setText(total_time_txt)
         QApplication.processEvents()
 
 # QT RUN
