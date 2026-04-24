@@ -5,6 +5,7 @@ Updates to the original [py_sfm_depth](https://github.com/geojames/py_sfm_depth)
 [![DOI](https://zenodo.org/badge/172077968.svg)](https://zenodo.org/badge/latestdoi/172077968)
 
 ##### Update History
+- V.7 - 2026 April 24 - Update to Python 3.14, fixing bugs related to Pandas (3.0.x) update, faster chunking
 - V.4 - 2019 June 26 - GUI bug fixes
 
 ## Tutorial - [https://geojames.github.io/pyBathySfM/](https://geojames.github.io/pyBathySfM/)
