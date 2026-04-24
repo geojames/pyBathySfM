@@ -1,0 +1,13 @@
+name: bathysfm-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - sympy
+  - matplotlib
+  - scipy
+  - pip:
+    - PyQt5
